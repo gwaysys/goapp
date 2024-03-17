@@ -1,4 +1,3 @@
-
 # Instruction
 
 This project is a template for building a new go project with go module management, using `. env.sh` or `source env.sh` for setting the project environment variable.
