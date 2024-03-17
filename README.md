@@ -11,7 +11,7 @@ go1.13 or later
 # Building a new project
 ``` text
 # clone the template to a new project
-git clone https://github.com/gwaycc/goapp.git --single-branch --branch master --depth=1 test
+git clone https://github.com/gwaypg/goapp.git --single-branch --branch master --depth=1 test
 cd test
 ./init.sh  
 . env.sh # Or source env.sh
@@ -67,7 +67,7 @@ Two ways for built-in deployment
 
 ## Deployment with supd
 ### Install supd
-See [supd](https://github.com/gwaycc/supd)
+See [supd](https://github.com/gwaypg/supd)
 
 ### Building binary for supd
 
