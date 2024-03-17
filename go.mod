@@ -1,4 +1,4 @@
-module github.com/gwaycc/goapp
+module github.com/gwaypg/goapp
 
 go 1.13
 
