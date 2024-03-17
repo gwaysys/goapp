@@ -16,7 +16,7 @@ require (
 	github.com/smartystreets/goconvey v1.7.2 // indirect
 	github.com/stretchr/testify v1.2.2 // indirect
 	github.com/urfave/cli/v2 v2.3.0
-	golang.org/x/net v0.7.0
+	golang.org/x/net v0.17.0
 	google.golang.org/appengine v1.6.7 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 )
