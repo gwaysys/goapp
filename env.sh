@@ -48,11 +48,11 @@ main(){
     # Download sup to manage project
     # -------------------------------------------------
     if [ ! -f $GOBIN/sup ]; then
-        type curl >/dev/null 2>&1||{ echo -e >&2 "curl not found, need install at first."; return 1; }
-        echo "Download sup to bin."
+        type curl >/dev/null 2>&1||{ echo -e >&2 "curl not found"; return 1; }
+        echo "Download sup to bin"
         mkdir -p $GOBIN&& \
         #curl https://raw.githubusercontent.com/gwaypg/supd/master/bin/sup -o $GOBIN/sup && \
-        curl https://raw.githubusercontent.com/gwaypg/supd/v1.0.7/bin/sup -o $GOBIN/sup && \
+        curl https://raw.githubusercontent.com/gwaypg/supd/v1.0.8/bin/sup -o $GOBIN/sup && \
         chmod +x $GOBIN/sup&&echo "Download sup done."|| return 1
     fi
     # --------------------END--------------------
