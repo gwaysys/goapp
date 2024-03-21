@@ -12,7 +12,7 @@ import (
 func main() {
 	fmt.Println("git commit:", version.GitCommit)
 	mdb := db.GetCache("master")
-	// defer database.Close(mdb)
+	defer db.CloseCache()
 	_ = mdb
 
 	fmt.Println("[ctrl+c to exit]")
