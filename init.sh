@@ -32,13 +32,13 @@ echo -n '#' "Clean template data?[Y/n]"
 read ANS
 case $ANS in
     Y)
-        rm init.sh
         rm -rf .git
-        rm -rf applet
-        rm -rf module
-        rm -rf service
+        rm -rf cmd/*
+        rm -rf module/*
+        rm -rf version
         rm go.mod
         rm go.sum
+        rm init.sh
         go mod init $project_name
         exit 0
         ;;
