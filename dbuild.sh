@@ -15,7 +15,7 @@ CMD ["/app/bin/supd", "-c","/app/etc/supd.conf"]
 
 # build bin data
 export CGO_ENABLED=0 GOOS=linux GOARCH=amd64
-go install -v github.com/gwaypg/supd/cmd/supd@v1.0.5||exit 1
+go install -v github.com/gwaysys/supd/cmd/supd@v1.0.9||exit 1
 # publish build
 sup publish all
 

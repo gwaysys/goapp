@@ -5,8 +5,8 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/gwaypg/goapp/module/db"
-	"github.com/gwaypg/goapp/version"
+	"github.com/gwaysys/goapp/module/db"
+	"github.com/gwaysys/goapp/version"
 )
 
 func main() {
