@@ -28,11 +28,25 @@ func (h *FilterHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	http.DefaultServeMux.ServeHTTP(w, r)
 }
 
-var server *cmd.App
+func serve(ctx *cli.Context) error {
+	// 过虑器
+	filter := &FilterHandler{}
+	addr := ctx.String("addr")
+	log.Printf("Listen: %s\n", addr)
+	log.Fatal(http.ListenAndServe(addr, filter))
+	return nil
 
-func init() {
-	server = &cmd.App{}
-	server.Register("server", &cli.Command{
+}
+
+var server = &cmd.App{
+	cli.App{
+		Action: func(ctx *cli.Context) error {
+			return runCmd.Run(ctx)
+		},
+	},
+}
+var (
+	runCmd = &cli.Command{
 		Name:  "run",
 		Usage: "run the server",
 		Flags: []cli.Flag{
@@ -42,16 +56,9 @@ func init() {
 				Usage: "listen address",
 			},
 		},
-		Action: func(ctx *cli.Context) error {
-			// 过虑器
-			filter := &FilterHandler{}
-			addr := ctx.String("addr")
-			log.Printf("Listen: %s\n", addr)
-			log.Fatal(http.ListenAndServe(addr, filter))
-			return nil
-		},
-	})
-	server.Register("client", &cli.Command{
+		Action: serve,
+	}
+	checkCmd = &cli.Command{
 		Name:  "check",
 		Usage: "check the server url",
 		Flags: []cli.Flag{
@@ -88,7 +95,12 @@ func init() {
 			fmt.Printf("status:%d,body:%s\n", resp.StatusCode, string(body))
 			return nil
 		},
-	})
+	}
+)
+
+func init() {
+	server.Register("server", runCmd)
+	server.Register("client", checkCmd)
 }
 func main() {
 	server.Setup()
