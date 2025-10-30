@@ -7,7 +7,7 @@ import (
 )
 
 type App struct {
-	*cli.App
+	cli.App
 }
 
 func (a *App) Register(category string, cmds ...*cli.Command) {
