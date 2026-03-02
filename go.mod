@@ -8,7 +8,7 @@ require (
 	github.com/gwaylib/conf v0.0.3
 	github.com/gwaylib/errors v0.0.4
 	github.com/gwaylib/log v0.0.6
-	github.com/gwaylib/qsql v0.0.3
+	github.com/gwaylib/qsql v0.0.4
 	github.com/jmoiron/sqlx v1.2.0 // indirect
 	github.com/labstack/gommon v0.3.1
 	github.com/smartystreets/goconvey v1.7.2 // indirect
