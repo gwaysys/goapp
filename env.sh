@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Template from https://github.com/gwaysys/goapp
+# Template from https://github.com/gwaysys/supd
 
 # Export environment for building or runing program
 # -------------------------------------------------
@@ -11,8 +11,10 @@ export GO111MODULE=on
 
 # Setting directory of sup [command] all, split with space for multiply directory.
 export BUILD_ALL_PATH="$PRJ_ROOT/cmd/app $PRJ_ROOT/cmd/web"
+export INSTALL_ALL_PATH="$PRJ_ROOT/cmd/app" # for running, using $BUILD_ALL_PATH when not set
 export BUILD_GIT_COMMIT="github.com/gwaysys/goapp/version.GitCommit" # 'sup build' should should fill this var
 export BUILD_LDFLAGS="" # set go ldflags if need
+# export APP_ARGS="serve --etc-root=$PRJ_ROOT" # sup start with args when \$APP_ARGS is set
 
 # Setting supd program params configuration
 ## --------------------START-------------------
@@ -52,7 +54,7 @@ main(){
         echo "Download sup to bin"
         mkdir -p $GOBIN&& \
         #curl https://raw.githubusercontent.com/gwaysys/supd/master/bin/sup -o $GOBIN/sup && \
-        curl https://raw.githubusercontent.com/gwaysys/supd/v1.1.2/bin/sup -o $GOBIN/sup && \
+        curl https://raw.githubusercontent.com/gwaysys/supd/v1.1.4/bin/sup -o $GOBIN/sup && \
         chmod +x $GOBIN/sup&&echo "Download sup done."|| return 1
     fi
     # --------------------END--------------------
